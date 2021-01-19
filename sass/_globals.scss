@@ -1,0 +1,57 @@
+// Global styles
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Public Sans', sans-serif;
+  font-size: $font-md;
+  font-weight: 300;
+  color: $grayishBlue;
+  line-height: 1.3;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: $grayishBlue;
+}
+
+// Flexbox styles
+.flex {
+  display: flex;
+
+  &-js-c {
+    justify-content: center;
+  }
+
+  &-js-sb {
+    justify-content: space-between;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+// Buttons Styles
+button,
+.button {
+  background: linear-gradient(to right, $limeGreen, $brightCyan);
+  color: $white;
+  padding: 1rem 1.875rem;
+  border-radius: 50px;
+  border: 0;
+  font-weight: 700;
+  cursor: pointer;
+}
