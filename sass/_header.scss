@@ -1,6 +1,13 @@
 .header {
-  nav {
-    padding: 1.0625rem 1.5rem;
+  .overlay {
+    position: fixed;
+    top: 3.75rem;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: linear-gradient($darkBlue, transparent);
+    display: none;
+    opacity: 0;
   }
 
   &__logo {
@@ -9,14 +16,18 @@
   }
 
   &__icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
 
-    img {
-      position: absolute;
-      cursor: pointer;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 0.75rem;
+
+      img {
+        position: absolute;
+        cursor: pointer;
+      }
     }
 
     &-close {
@@ -39,6 +50,24 @@
         color: $darkBlue;
         border-bottom: 5px solid $limeGreen;
       }
+    }
+  }
+
+  &__mobile-menu {
+    background-color: $white;
+    margin-top: 2.5rem;
+    padding: 1rem 0;
+    border-radius: 5px;
+    position: absolute;
+    width: calc(100% - 60px);
+    display: none;
+    opacity: 0;
+
+    a {
+      color: $darkBlue;
+      padding: 0.625rem;
+      display: block;
+      text-align: center;
     }
   }
 }

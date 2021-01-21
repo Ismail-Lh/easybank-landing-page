@@ -1,0 +1,9 @@
+:root {
+  --animate-duration: 600ms;
+  --animate-delay: 0.7s;
+}
+
+.animate__animated.animate__backInUp,
+.animate__animated.animate__backOutUp {
+  --animate-delay: 1.5s;
+}
