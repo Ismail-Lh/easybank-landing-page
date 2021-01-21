@@ -1,0 +1,27 @@
+// SCSS map for Breakpoints
+// 640px, 1024px, 1400px
+$breakpoints-up: (
+  'md': '40em',
+  'lg': '64em',
+  'xlg': '87.5em',
+);
+
+// 639px, 1023px, 1399px
+$breakpoints-down: (
+  'sm': '39.9375em',
+  'md': '63.9375em',
+  'lg': '87.4375em',
+);
+
+// Breakpoints for media
+@mixin breakpoints-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size )) {
+    @content;
+  }
+}
+
+@mixin breakpoints-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size )) {
+    @content;
+  }
+}

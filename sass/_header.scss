@@ -1,19 +1,28 @@
 .header {
   nav {
-    padding: 24px;
+    padding: 1.0625rem 1.5rem;
   }
 
   &__logo {
-    img {
-    }
-  }
-
-  &__icon {
+    width: 8.8125rem;
+    height: 1.375rem;
   }
 
   &__links {
     a {
       font-size: $font-sm;
+      transition: all 0.2s ease;
+      padding-bottom: 1.5rem;
+      border-bottom: 5px solid transparent;
+
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+
+      &:hover {
+        color: $darkBlue;
+        border-bottom: 5px solid $limeGreen;
+      }
     }
   }
 }
