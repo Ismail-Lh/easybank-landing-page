@@ -1,0 +1,106 @@
+.section-hero {
+  background-color: $veryLightGray;
+  // height: calc(100vh - 5.125rem);
+
+  .hero {
+    @include breakpoints-up(lg) {
+      display: flex;
+      align-items: center;
+    }
+
+    &__img {
+      position: relative;
+      background-image: url('/images/bg-intro-mobile.svg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      min-height: 17.5rem;
+
+      @include breakpoints-up(md) {
+        min-height: 25rem;
+        background-position: center 70%;
+      }
+
+      // Style for deasktop & large devices
+      @include breakpoints-up(lg) {
+        background-image: none;
+        flex: 3;
+        order: 2;
+        height: 41rem;
+      }
+
+      &::before {
+        @include breakpoints-up(lg) {
+          content: '';
+          height: 100%;
+          width: 150%;
+          position: absolute;
+          background-image: url('/images/bg-intro-desktop.svg');
+          background-repeat: no-repeat;
+          background-size: 126%;
+          background-position: 10% 83%;
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('/images/image-mockups.png');
+        background-size: 93%;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+
+        @include breakpoints-up(md) {
+          background-size: 52%;
+        }
+
+        @include breakpoints-up(lg) {
+          width: 122%;
+          height: 125%;
+          background-size: 91%;
+          background-position: center 290%;
+          left: 16%;
+        }
+      }
+    }
+
+    &__text {
+      text-align: center;
+      // padding: 1.937rem 1.5625rem 3.187rem 1.5625rem;
+
+      @include breakpoints-up(lg) {
+        flex: 2;
+        order: 1;
+        text-align: left;
+      }
+
+      h1 {
+        font-size: 2.3125rem;
+        font-weight: 300;
+        color: $darkBlue;
+        line-height: 1.15;
+        margin-bottom: 1.5rem;
+
+        @include breakpoints-up(lg) {
+          font-size: $font-xlg;
+        }
+      }
+
+      p {
+        line-height: 1.5;
+        margin-bottom: 2.1875rem;
+      }
+    }
+
+    // 2:17:00
+
+    // display: grid;
+    // grid-template-columns: 40% 60%;
+    // justify-self: center;
+    // align-items: center;
+    // height: 100%;
+    // position: relative;
+  }
+}

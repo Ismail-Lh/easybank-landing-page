@@ -1,3 +1,4 @@
+const body = document.querySelector('.body');
 const header = document.querySelector('.header');
 const menuIcon = document.querySelector('.header__icon');
 const hamburgerIcon = document.querySelector('#hamburger-icon');
@@ -5,46 +6,48 @@ const closeIcon = document.querySelector('#close-icon');
 const overlay = document.querySelector('.overlay');
 const mobileMenu = document.querySelector('#mobile-menu');
 
-function showOverlay () {
-   overlay.classList.add('animate__fadeInDown');
-   overlay.classList.remove('animate__fadeOutUp');
-   overlay.style.display = 'block';
+function toggleMenuIcon (icon, display = 'inline-block') {
+   icon.style.display = display;
 }
 
-function hideOverlay () {
-   overlay.classList.remove('animate__fadeInDown');
-   overlay.classList.add('animate__fadeOutUp');
+function showItem (item, showClass, hideClass, display = 'block') {
+   item.classList.add(showClass);
+   item.classList.remove(hideClass);
+   item.style.display = display;
+
+   toggleMenuIcon(closeIcon);
+   toggleMenuIcon(hamburgerIcon, 'none');
+
+   body.classList.add('noscroll');
 }
 
-function showMobileMenu () {
-   mobileMenu.classList.add('animate__backInUp');
-   mobileMenu.classList.remove('animate__backOutUp');
-   mobileMenu.style.display = 'block';
-}
+function hideItem (item, showClass, hideClass, display = 'none') {
+   item.classList.remove(showClass);
+   item.classList.add(hideClass);
+   item.style.display = display;
 
-function hideMobileMenu () {
-   mobileMenu.classList.remove('animate__backInUp');
-   mobileMenu.classList.add('animate__backOutUp');
+   toggleMenuIcon(hamburgerIcon);
+   toggleMenuIcon(closeIcon, 'none');
+
+   body.classList.remove('noscroll');
 }
 
 function toggleMenu (e) {
    const iconClass = e.target.className;
 
    if (iconClass === 'header__icon-hamburger') {
-      closeIcon.style.display = 'inline-block';
-      hamburgerIcon.style.display = 'none';
-
-      showOverlay();
-      showMobileMenu();
+      showItem(overlay, 'animate__fadeInDown', 'animate__fadeOutUp');
+      showItem(mobileMenu, 'animate__backInUp', 'animate__backOutUp');
 
    } else if (iconClass === 'header__icon-close') {
-      hamburgerIcon.style.display = 'inline-block';
-      closeIcon.style.display = 'none';
-
-      hideOverlay();
-      hideMobileMenu();
+      hideItem(overlay, 'animate__fadeInDown', 'animate__fadeOutUp');
+      hideItem(mobileMenu, 'animate__backInUp', 'animate__backOutUp');
    }
 }
 
 menuIcon.addEventListener('click', toggleMenu);
 
+overlay.addEventListener('click', () => {
+   hideItem(overlay, 'animate__fadeInDown', 'animate__fadeOutUp');
+   hideItem(mobileMenu, 'animate__backInUp', 'animate__backOutUp');
+});
