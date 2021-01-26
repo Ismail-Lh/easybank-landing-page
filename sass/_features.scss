@@ -22,18 +22,6 @@
   }
 
   .features__grid {
-    @include breakpoints-up(md) {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 2rem;
-    }
-
-    @include breakpoints-up(lg) {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      column-gap: 1.875rem;
-    }
-
     &-item {
       &:not(:last-child) {
         margin-bottom: 2rem;
