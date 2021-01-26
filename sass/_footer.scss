@@ -1,0 +1,71 @@
+.footer {
+  background-color: $darkBlue;
+  text-align: center;
+
+  @include breakpoints-up(lg) {
+    text-align: start;
+  }
+
+  &__item {
+    @include breakpoints-up(lg) {
+      display: flex;
+      align-items: center;
+    }
+
+    a {
+      color: $white;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    &-1,
+    &-2 {
+      @include breakpoints-up(lg) {
+        margin-right: 7.5rem;
+      }
+    }
+
+    &-2 {
+      margin-bottom: 1.25rem;
+
+      @include breakpoints-up(lg) {
+        margin-bottom: 0;
+      }
+    }
+
+    &-2,
+    &-3 {
+      li {
+        &:not(:last-child) {
+          margin-bottom: 1.25rem;
+        }
+      }
+    }
+
+    &-4 {
+      @include breakpoints-up(lg) {
+        margin-left: auto;
+        text-align: end;
+      }
+
+      button {
+        margin: 2rem 0 1.5rem 0;
+      }
+
+      p {
+        font-size: 1.125rem;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__icons {
+    margin: 1.875rem 0 2.25rem 0;
+
+    a {
+      &:not(:last-child) {
+        margin-right: 0.8rem;
+      }
+    }
+  }
+}
